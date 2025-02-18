@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 import { ProgressBar } from 'react-native-paper';
+import TopMenu from '../components/TopMenu';
+import BotMenu from '../components/BotMenu';
 
 const activities = [
     { id: '1', title: 'Warmup' },
@@ -20,14 +21,8 @@ const getCurrentDate = () => {
 const Home = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.buttonRow}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Commander</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.button, styles.secondaryButton]}>
-                    <Text style={styles.secondaryButtonText}>S’entraîner</Text>
-                </TouchableOpacity>
-            </View>
+
+            <TopMenu />
 
             <Text style={styles.date}>{getCurrentDate()}</Text>
             <Text style={styles.welcomeText}>Bonjour, <Text style={styles.boldText}>Kate</Text> 👋</Text>
@@ -51,21 +46,8 @@ const Home = () => {
                 )}
             />
 
-            {/* Barre de navigation */}
-            <View style={styles.navBar}>
-                <TouchableOpacity style={styles.navItem}>
-                    <Ionicons name="home" size={24} color="#FFB340" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Ionicons name="barbell" size={24} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Ionicons name="cart" size={24} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <Ionicons name="person" size={24} color="#fff" />
-                </TouchableOpacity>
-            </View>
+            <BotMenu />
+            
         </View>
     );
 };
@@ -77,35 +59,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#1E1E1E',
         padding: 20,
-    },
-    buttonRow: {
-        marginTop: 50,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 20,
-    },
-    button: {
-        flex: 1,
-        backgroundColor: '#FFB340',
-        paddingVertical: 12,
-        alignItems: 'center',
-        borderRadius: 8,
-        marginRight: 10,
-    },
-    buttonText: {
-        color: '#000',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    secondaryButton: {
-        backgroundColor: 'transparent',
-        borderColor: '#FFB340',
-        borderWidth: 2,
-    },
-    secondaryButtonText: {
-        color: '#FFB340',
-        fontSize: 16,
-        fontWeight: 'bold',
     },
     date: {
         color: '#bbb',
@@ -162,18 +115,5 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 14,
         marginTop: 5,
-    },
-    navBar: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        paddingVertical: 15,
-        backgroundColor: '#141414',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-    },
-    navItem: {
-        alignItems: 'center',
-    },
+    }
 });

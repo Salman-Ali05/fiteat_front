@@ -12,7 +12,7 @@ const Login = ({ navigation }) => {
             <Text style={styles.label}>Mot de passe</Text>
             <TextInput style={styles.input} placeholder="Entrez votre mot de passe" placeholderTextColor="#bbb" secureTextEntry />
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TrainHome')}>
                 <Text style={styles.buttonText}>CONNEXION</Text>
             </TouchableOpacity>
 

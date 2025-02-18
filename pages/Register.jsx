@@ -18,7 +18,7 @@ const Register = ({ navigation }) => {
             <TextInput style={styles.input} placeholder="Confirmez votre mot de passe" placeholderTextColor="#bbb" secureTextEntry />
 
             {/* Bouton d'inscription */}
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TrainHome')}>
                 <Text style={styles.buttonText}>INSCRIPTION</Text>
             </TouchableOpacity>
 
