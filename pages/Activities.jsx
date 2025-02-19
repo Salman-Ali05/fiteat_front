@@ -1,36 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
-import { ProgressBar } from 'react-native-paper';
 import TopMenu from '../components/TopMenu';
 import BotMenu from '../components/BotMenu';
 
 const activities = [
-    { id: '1', title: 'Warmup' },
-    { id: '2', title: 'Training' },
-    { id: '3', title: 'Warmup' },
-    { id: '4', title: 'Stretching' },
+    { id: '1', title: 'Poids de corps' },
+    { id: '2', title: 'Étirement' },
+    { id: '3', title: 'Maison / Salle de sport' },
 ];
 
-const getCurrentDate = () => {
-    const date = new Date();
-    const options = { weekday: 'long', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('fr-EU', options).toUpperCase();
-};
-
-
-const TrainHome = () => {
+const Activities = () => {
     return (
         <View style={styles.container}>
 
             <TopMenu />
-
-            <Text style={styles.date}>{getCurrentDate()}</Text>
-            <Text style={styles.welcomeText}>Bonjour, <Text style={styles.boldText}>Kate</Text> 👋</Text>
-
-            <View style={styles.card}>
-                <Text style={styles.cardText}>Protéines, graisses et glucides</Text>
-                <ProgressBar progress={0.5} color="#4169E1" style={styles.progressBar} />
-            </View>
 
             {/* Activités */}
             <Text style={styles.sectionTitle}>Activités d’aujourd’hui</Text>
@@ -57,37 +40,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#1E1E1E',
         padding: 20,
-    },
-    date: {
-        color: '#bbb',
-        fontSize: 14,
-        marginBottom: 5,
-    },
-    welcomeText: {
-        color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 15,
-    },
-    boldText: {
-        color: '#fff',
-        fontWeight: 'bold',
-    },
-    card: {
-        backgroundColor: '#FFB340',
-        padding: 15,
-        borderRadius: 10,
-        marginBottom: 20,
-    },
-    cardText: {
-        color: '#000',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
-    progressBar: {
-        height: 5,
-        borderRadius: 5,
+        justifyContent: 'center',
     },
     sectionTitle: {
         color: '#fff',
@@ -116,4 +69,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default TrainHome;
+export default Activities;

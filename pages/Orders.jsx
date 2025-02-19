@@ -11,7 +11,7 @@ const meals = [
     { id: '4', title: 'Trios savoureux', discount: '-25%' },
 ];
 
-const Orders = () => {
+const OrdersHome = () => {
     return (
         <View style={styles.container}>
             <TopMenu />
@@ -29,7 +29,7 @@ const Orders = () => {
     );
 };
 
-export default Orders;
+export default OrdersHome;
 
 const styles = StyleSheet.create({
     container: {

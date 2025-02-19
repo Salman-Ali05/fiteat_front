@@ -9,17 +9,17 @@ const BotMenu = () => {
 
     return (
         <View style={styles.navBar}>
-            <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('TrainHome')}>
                 <Ionicons name="home" size={24} style={styles.iconsSelected} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.navItem}>
-                <Ionicons name="barbell" size={24} color="#fff" />
+            <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Activities')}>
+                <Ionicons name="barbell" size={24} color="#fff" style={styles.icons}/>
             </TouchableOpacity>
             <TouchableOpacity style={styles.navItem}>
-                <Ionicons name="cart" size={24} color="#fff" />
+                <Ionicons name="cart" size={24} color="#fff" style={styles.icons}/>
             </TouchableOpacity>
             <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Login')}>
-                <Ionicons name="person" size={24} color="#fff" />
+                <Ionicons name="person" size={24} color="#fff" style={styles.icons}/>
             </TouchableOpacity>
         </View>
     )
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         paddingVertical: 15,
-        backgroundColor: '#141414',
+        backgroundColor: '#FFB340',
         position: 'absolute',
         bottom: 0,
         left: 0,
@@ -38,12 +38,17 @@ const styles = StyleSheet.create({
     },
     navItem: {
         alignItems: 'center',
+        justifyContent : 'center',
     },
     icons :{
-        color:"#fff"
+        color:"#1E1E1E"
     },
     iconsSelected :{
-        color:"#FFB340"
+        color:"#1E1E1E",
+        borderRadius: 100,
+        padding: 5,
+        borderWidth : 2,
+        borderBlockColor : "#1E1E1E",
     }
 })
 
