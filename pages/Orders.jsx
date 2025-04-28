@@ -16,13 +16,17 @@ const OrdersHome = () => {
         <View style={styles.container}>
             <TopMenu />
 
-            <FlatList
-                data={meals}
-                keyExtractor={(item) => item.id}
-                numColumns={2}
-                renderItem={({ item }) => <MealCard title={item.title} discount={item.discount} />}
-                contentContainerStyle={styles.listContainer}
-            />
+            <View style={styles.content}>
+
+                <FlatList
+                    data={meals}
+                    keyExtractor={(item) => item.id}
+                    numColumns={2}
+                    renderItem={({ item }) => <MealCard title={item.title} discount={item.discount} />}
+                    contentContainerStyle={styles.listContainer}
+                />
+
+            </View>
 
             <BotMenu />
         </View>
@@ -36,6 +40,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#1E1E1E',
         padding: 20,
+    },
+    content: {
+        flex: 1,
+        marginBottom: 60,
     },
     listContainer: {
         paddingBottom: 20,

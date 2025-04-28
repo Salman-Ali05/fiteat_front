@@ -22,29 +22,32 @@ const TrainHome = () => {
     return (
         <View style={styles.container}>
 
-            <TopMenu />
+            <View style={styles.content}>
 
-            <Text style={styles.date}>{getCurrentDate()}</Text>
-            <Text style={styles.welcomeText}>Bonjour, <Text style={styles.boldText}>Kate</Text> 👋</Text>
+                <TopMenu />
 
-            <View style={styles.card}>
-                <Text style={styles.cardText}>Protéines, graisses et glucides</Text>
-                <ProgressBar progress={0.5} color="#4169E1" style={styles.progressBar} />
+                <Text style={styles.date}>{getCurrentDate()}</Text>
+                <Text style={styles.welcomeText}>Bonjour, <Text style={styles.boldText}>Kate</Text> 👋</Text>
+
+                <View style={styles.card}>
+                    <Text style={styles.cardText}>Progression %</Text>
+                    <ProgressBar progress={0.7} color="#4169E1" style={styles.progressBar} />
+                </View>
+
+                <Text style={styles.sectionTitle}>Activités d’aujourd’hui</Text>
+                <FlatList
+                    data={activities}
+                    numColumns={2}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({ item }) => (
+                        <View style={styles.activityCard}>
+                            <Image source={item.image} style={styles.activityImage} />
+                            <Text style={styles.activityText}>{item.title}</Text>
+                        </View>
+                    )}
+                />
+
             </View>
-
-            {/* Activités */}
-            <Text style={styles.sectionTitle}>Activités d’aujourd’hui</Text>
-            <FlatList
-                data={activities}
-                numColumns={2}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                    <View style={styles.activityCard}>
-                        <Image source={item.image} style={styles.activityImage} />
-                        <Text style={styles.activityText}>{item.title}</Text>
-                    </View>
-                )}
-            />
 
             <BotMenu />
 
@@ -57,6 +60,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#1E1E1E',
         padding: 20,
+    },
+    content: {
+        flex: 1,
+        marginBottom: 60,
     },
     date: {
         color: '#bbb',

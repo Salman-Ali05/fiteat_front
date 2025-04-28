@@ -1,9 +1,18 @@
+import { useRoute } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Button } from 'react-native';
 
 const Login = ({ navigation }) => {
+
+    const tab = [
+        { name: 'Adm_Home' },
+    ];
+    const route = useRoute();
+
     return (
         <View style={styles.container}>
+            <TouchableOpacity
+                key={tab[0].name} onPress={() => navigation.navigate(tab[0].name)}><Text>Air</Text></TouchableOpacity>
             <Image source={require('../assets/logo.png')} style={styles.logo} />
 
             <Text style={styles.label}>Adresse email</Text>

@@ -12,7 +12,7 @@ const BotMenu = () => {
         { name: 'TrainHome', icon: 'home' },
         { name: 'Activities', icon: 'barbell' },
         { name: 'OrdersHome', icon: 'cart' },
-        { name: 'Login', icon: 'person' },
+        { name: 'Profile', icon: 'person' },
     ];
 
     return (
