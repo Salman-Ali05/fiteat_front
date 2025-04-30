@@ -13,14 +13,14 @@ const TopMenu = () => {
         <View style={styles.buttonRow}>
             <TouchableOpacity
                 style={[styles.button, styles.secondaryButton, isTrainingActive && styles.activeButton]}
-                onPress={() => navigation.navigate('TrainHome')}
+                onPress={() => navigation.navigate('Adm_Home')}
             >
                 <Text style={[styles.secondaryButtonText, isTrainingActive && styles.activeButtonText]}>S’entraîner</Text>
                 {isTrainingActive && <View style={styles.underline} />}
             </TouchableOpacity>
             <TouchableOpacity
                 style={[styles.button, isOrdersActive && styles.activeButton]}
-                onPress={() => navigation.navigate('OrdersHome')}
+                onPress={() => navigation.navigate('Adm_Orders')}
             >
                 <Text style={[styles.buttonText, isOrdersActive && styles.activeButtonText]}>Commander</Text>
                 {isOrdersActive && <View style={styles.underline} />}

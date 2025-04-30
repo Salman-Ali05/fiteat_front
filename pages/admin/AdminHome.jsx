@@ -3,22 +3,45 @@ import React, { useState } from 'react';
 import AdmintopMenu from '../../components/admin/AdminTopMenu';
 import AdminBotMenu from '../../components/admin/AdminBotMenu';
 import { Ionicons } from '@expo/vector-icons';
+import { TextInput } from 'react-native-gesture-handler';
+import RNPickerSelect from 'react-native-picker-select';
 
 const coaches = [
     { id: '1', name: 'Coach Sophia' },
     { id: '2', name: 'Diététicien Alex' },
     { id: '3', name: 'Coach Leo' },
+    { id: '4', name: 'Diététicien Emma' },
+    { id: '5', name: 'Coach Max' },
+    { id: '6', name: 'Diététicien Sarah' },
+    { id: '7', name: 'Coach Mia' },
+    { id: '8', name: 'Diététicien Noah' },
+    { id: '9', name: 'Coach Ava' },
+    { id: '10', name: 'Diététicien Lucas' },
 ];
 
 const adherents = [
     { id: '1', name: 'Adhérent Marie' },
     { id: '2', name: 'Adhérent Thomas' },
     { id: '3', name: 'Adhérent Nora' },
+    { id: '4', name: 'Adhérent Hugo' },
+    { id: '5', name: 'Adhérent Clara' },
+    { id: '6', name: 'Adhérent Leo' },
+    { id: '7', name: 'Adhérent Chloé' },
+    { id: '8', name: 'Adhérent Paul' },
+    { id: '9', name: 'Adhérent Zoé' },
+    { id: '10', name: 'Adhérent Lucas' },
+];
+
+const dropdownItems = [
+    { label: 'Coach', value: 'coach' },
+    { label: 'Diététicien', value: 'diet' },
+    { label: 'Adhérent', value: 'adherent' },
 ];
 
 const AdminHome = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalType, setModalType] = useState(''); // 'coach' ou 'adherent'
+    const [selectedValue, setSelectedValue] = useState(null);
 
     const openModal = (type) => {
         setModalType(type);
@@ -86,9 +109,36 @@ const AdminHome = () => {
                         <Text style={styles.modalTitle}>
                             Ajouter un {modalType === 'coach' ? 'coach / diététicien' : 'adhérent'}
                         </Text>
-                        <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-                            <Text style={styles.closeButtonText}>Fermer</Text>
-                        </TouchableOpacity>
+                        <View style={styles.form}>
+                            <TextInput style={styles.inputs} placeholder='Email' />
+                            <TextInput style={styles.inputs} placeholder='Nom' />
+                            <TextInput style={styles.inputs} placeholder='Prénom' />
+                            <RNPickerSelect
+                                onValueChange={(value) => setSelectedValue(value)}
+                                placeholder={{
+                                    label: 'Sélectionner un type',
+                                    value: null,
+                                    color: "#FFB340"
+                                }}
+                                items={dropdownItems}
+                                value={selectedValue}
+                                useNativeAndroidPickerStyle={false}
+                                style={pickerSelectStyles}
+                                Icon={() => <Ionicons name="chevron-down" size={18} color="#FFB340" style={{ marginRight: 10 }} />}
+                            />
+
+
+                        </View>
+
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+                                <Text style={styles.closeButtonText}>Valider</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+                                <Text style={styles.closeButtonText}>Fermer</Text>
+                            </TouchableOpacity>
+                        </View>
+
                     </View>
                 </View>
             </Modal>
@@ -176,4 +226,50 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     },
+
+    form: {
+        width: '90%',
+    },
+    inputs: {
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 5,
+        marginBottom: 10,
+        borderColor: '#FFB340',
+        borderWidth: 1,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '90%',
+    },
 });
+
+const pickerSelectStyles = {
+    inputIOS: {
+        backgroundColor: '#2E2E2E',
+        color: '#fff',
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+        borderRadius: 10,
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    inputAndroid: {
+        backgroundColor: '#2E2E2E',
+        color: '#fff',
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+        borderRadius: 10,
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    iconContainer: {
+        top: 18,
+        right: 15,
+    },
+    placeholder: {
+        color: '#FFB340',
+    },
+};
+

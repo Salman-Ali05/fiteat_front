@@ -6,6 +6,7 @@ import TrainHome from './pages/TrainHome';
 import OrdersHome from './pages/Orders';
 import Activities from './pages/Activities';
 import AdminHome from './pages/admin/AdminHome';
+import AdminOrders from './pages/admin/AdminOrders';
 
 // Création du stack navigator
 const Stack = createStackNavigator();
@@ -25,6 +26,8 @@ export default function App() {
         <Stack.Screen name="OrdersHome" component={OrdersHome} />
         <Stack.Screen name="Activities" component={Activities} />
         <Stack.Screen name="Adm_Home" component={AdminHome} />
+        <Stack.Screen name="Adm_Orders" component={AdminOrders} />
+        <Stack.Screen name="Logout" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

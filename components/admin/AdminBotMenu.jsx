@@ -9,10 +9,8 @@ const BotMenu = () => {
 
     // Définition des onglets et de leurs routes
     const tabs = [
-        { name: 'TrainHome', icon: 'home' },
-        { name: 'Activities', icon: 'barbell' },
-        { name: 'OrdersHome', icon: 'cart' },
-        { name: 'Profile', icon: 'person' },
+        { name: 'Adm_Home', icon: 'home' },
+        { name: 'Logout', icon: 'log-out' },
     ];
 
     return (
